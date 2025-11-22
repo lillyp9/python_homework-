@@ -158,7 +158,7 @@ def pig_latin(string):
             consonants_chunck = first_word[:counter]
             words += rest_of_word + consonants_chunck + "ay "
     return words.strip()
-            
+print(pig_latin("square apple string"))            
   
                  
                 
