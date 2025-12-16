@@ -1,0 +1,25 @@
+
+function: weather
+positional parameters: none
+keyword parameters: none
+return: Its sleet
+function: multiple_number
+positional parameters: (10, 8)
+keyword parameters: none
+return: 80
+function: puppy_description
+positional parameters: none
+keyword parameters: {'name': 'Kalina', 'age': 10}
+return: Kalina is 10 years old.
+function: weather
+positional parameters: none
+keyword parameters: none
+return: Its sleet
+function: multiple_number
+positional parameters: (10, 8)
+keyword parameters: none
+return: 80
+function: puppy_description
+positional parameters: none
+keyword parameters: {'name': 'Kalina', 'age': 10}
+return: Kalina is 10 years old.
