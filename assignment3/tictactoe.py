@@ -1,9 +1,11 @@
-class TictactoeException(Exception):
+class TictactoeException(Exception):           #Remember Class defines the behavior of the object
+    pass
     def __init__(self, message):
         super().__init__(message)
 
 class Board:
     def __init__(self):
+        #Initializes the game board and starting players 
         self.board_array = [["" for _ in range(3)] for _ in range(3)]   
         self.turn = "X"
         
@@ -19,6 +21,7 @@ class Board:
       return(output) 
     
     def move(self, move_string):
+        #Processes a player's move and updates the board or raises an exception for invalid moves.
         if move_string not in Board.valid_moves:
             raise TictactoeException("That's not a valid move.")
         move_index = Board.valid_moves.index(move_string)
@@ -30,6 +33,8 @@ class Board:
         self.turn = "O" if self.turn == "X" else "X"
     
     def whats_next(self):
+        # Checks if the game is won, tied, or should still keep going
+        #
         board = self.board_array
 
         # Check rows
@@ -56,28 +61,32 @@ class Board:
 
         
         return True, "Cat's Game"
-    
-    def main(self):
-        board = Board()
-        game_over = False
 
-        while not game_over:
-            print(board)
-            print()
+#main() runs the program   
+def main():
+    board = Board()
+    game_over = False
 
-            try:
-                move = input(f"{board.turn}'s move: ").strip().lower()
-                board.move(move)
-            except TictactoeException as e:
-                print(e)
-                continue
-
-            game_over, message = board.whats_next()
-
-        print()
+    while not game_over:
         print(board)
-        print(message)
-     
+          
+
+        try:
+            move = input(f"{board.turn}'s move: ").strip().lower()
+            board.move(move)
+        except TictactoeException as e:
+            print(e)
+            continue
+
+        game_over, message = board.whats_next()
+
+       
+    print(board)
+    print(message)
+
+#Starts Everything    
+if __name__ == "__main__":
+    main()
       
      
        
