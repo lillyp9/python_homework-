@@ -245,7 +245,7 @@ for row in cursor.fetchall():
 #Find employees wuth more than 5 orders... want the first_name, the last_name, and the count of orders. 
 #JOIN on the employees and orders table then use   GROUP BY employee , COUNT count orders per employee, HAVING filter only those that has more than 5 orders.
 #SELECT the employee_id , first_name, last_name, and order count
-#Load employees from csv
+
 
 query3 = """      
 SELECT
