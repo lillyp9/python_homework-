@@ -161,7 +161,7 @@ with sqlite3.connect("db/magazines.db") as conn:
     cursor.execute("""
     SELECT magazines.title 
     FROM magazines 
-    JOIN publishers ON magazines. publisher_id = publishers.id
+    JOIN publishers ON magazines.publisher_id = publishers.id
     WHERE publishers.name = ?
     """, (publisher_name,))
     magazines_by_publisher = cursor.fetchall()
