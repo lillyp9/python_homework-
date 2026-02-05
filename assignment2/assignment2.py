@@ -155,6 +155,12 @@ def write_sorted_list():
       writer = csv.writer(file)
       writer.writerow(minutes1_box["fields"])
       writer.writerow(converted_data['rows']) 
+    converted_data =  [(x[0], x[1].strftime("%B %d, %Y")) for x in minutes_list]
+    with open('./minutes.csv', 'w', newline='') as file:
+      writer = csv.writer(file)
+      writer.writerow(minutes1["fields"])
+      for row in converted_data:
+       writer.writerow(row) 
     return converted_data
      
                           
