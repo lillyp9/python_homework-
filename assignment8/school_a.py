@@ -16,7 +16,7 @@ with sqlite3.connect("db/school.db") as conn:
     # Create students table
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS students (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        id INTEGER PRIMARY KEY,
         name TEXT NOT NULL,
         age INTEGER,
         grade TEXT

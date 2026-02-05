@@ -36,3 +36,5 @@ df = df.sort_values(by='product_name')
 
 #Add the dataframe to a file named order_summary.csv
 df.to_csv("order_summary.csv")
+#Close the connection
+conn.close()

@@ -17,36 +17,39 @@ try:
     #create table for publishers
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS publishers (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      id INTEGER PRIMARY KEY,
       name TEXT NOT NULL UNIQUE
-    );
+    )
     """)
     
     #create table for maginezines
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS magazines (
-      title TEXT PRIMARY KEY,
-      publisher_id TEXT,
+        id INTEGER PRIMARY KEY,
+      title TEXT NOT NULL UNIQUE,
+      publisher_id INTEGER,
       FOREIGN KEY (publisher_id) REFERENCES publishers(id)
-    );
+    )
     """)
     #create table for subscribers
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS subscribers (
-        id TEXT PRIMARY KEY
-        PRIMARY KEY (id)
+        id INTEGER PRIMARY KEY,
+        name TEXT NOT NULL,
+        address TEXT NOT NULL
     );
     """)
     
     #create table for subscriptions
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS subscriptions (
+        id INTEGER PRIMARY KEY,
         subscriber_id INTEGER NOT NULL,
-        magazine_id TEXT NOT NULL,
+        magazine_id  INTEGER NOT NULL,
         expiration_date TEXT NOT NULL,
-        PRIMARY KEY (subscriber_id, magazine_id),
-        FOREIGN KEY (magazine_id) REFERENCES magazines(title)
-    );
+        FOREIGN KEY (subscriber_id) REFERENCES subscribers(id),
+        FOREIGN KEY (magazine_id) REFERENCES magazines(id)
+    )
     """)
     print("Tables created successfully.")
 
@@ -169,4 +172,6 @@ with sqlite3.connect("db/magazines.db") as conn:
     for magazine in magazines_by_publisher:
         print(magazine)
         
-#Task 5
+conn.commit()
+conn.close()
+
