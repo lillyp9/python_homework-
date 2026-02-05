@@ -261,6 +261,7 @@ cursor.execute(query3)
 results3 = cursor.fetchall()
 for row in results3:
     print(row) 
+    
 #Commit and close connection 
 conn.commit()
 conn.close()
