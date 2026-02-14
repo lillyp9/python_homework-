@@ -150,6 +150,11 @@ minutes_list= create_minutes_list()
 #Task 15
 def write_sorted_list():
     minutes_list.sort(key=lambda x: x[1]) 
+    converted_data = list(map(lambda x: (x[0], datetime.strftime("%B %d, %Y")), datetime))
+    with open('./minutes.csv', 'w', newline='') as file:
+      writer = csv.writer(file)
+      writer.writerow(minutes1_box["fields"])
+      writer.writerow(converted_data['rows']) 
     converted_data =  [(x[0], x[1].strftime("%B %d, %Y")) for x in minutes_list]
     with open('./minutes.csv', 'w', newline='') as file:
       writer = csv.writer(file)
