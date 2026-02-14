@@ -1,0 +1,31 @@
+
+Which sections of the website are restricted for crawling?
+User-agent: UbiCrawler
+Disallow: /
+
+User-agent: DOC
+Disallow: /
+
+User-agent: Zao
+Disallow: /
+
+These particularly copy the entire sites
+
+User-agent: sitecheck.internetseer.com
+Disallow: /
+
+User-agent: Zealbot
+Disallow: /
+ 
+The user agents shown in file is one of the many user-agentThat the robots.txt file disallow crawling in the entire site. 
+
+    Are there specific rules for certain user agents?
+    There is no restriction for general user agents. Just shows disallow as in not allowing the crawling in the site.
+
+
+    Reflect on why websites use robots.txt 
+    write 2-3 sentences explaining its purpose and how it promotes ethical scraping. 
+    
+Website using robots.txt is telling the automated bots what they cant or can do. If they have access to the full site or parts or none at all.
+It protects the server , prevent content scraping or dulpication, as well as control how search engine and crawlers interact with the site.
+Follwoing these rules , thats where ethical scraping comes into play by respecting web boundaries and avoid access to restricted or highly sensitive areas.

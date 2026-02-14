@@ -1,0 +1,23 @@
+Challenges Faced:
+
+1. First and foremost , i scraped the wrong owasp page (www-project-top-ten instead of Top10/2025) which result for the terminal to have an empty output [].
+My XPath expression kept breaking down , it didn't filter by the correct class , grab the global elements or said path not founded.
+2. Since i use linux and virtual environments , using : 
+options = Options()
+options.add_argument("--headless=new")
+options.add_argument("--window-size=1920,1080")
+options.add_argument("--disable-gpu")
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
+It is important for the Selenium stability. 
+Run Chrome without opening browser window , as well as set the browser size manually.
+Turn off or disable GPU is importants beacuse on linux (ubuntu the linux i use), GPU can cause the 
+program to crash.Disable Chrome sandbox security model would help with scraping, and the program nt to break.
+3.I debugged using print to get the output of thr code i created
+
+RESOLUTION;
+
+I corrected the URL to the right link (Top10/2025) to scrape the right page . Corrected my XPath expression so it can get the links to the 
+10 vulnerabilities starting with A0. I temporarily disabled the options.add_argument to debug  and check the data.Confirming the correct extration before completed the script
+
+
