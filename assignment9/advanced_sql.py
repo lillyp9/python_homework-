@@ -200,11 +200,11 @@ try:
     #Insert new order and get order_id
     cursor.execute(
         """
-        INSERT INTO orders (customer_id)
-        VALUES (?)
+        INSERT INTO orders (customer_id, employee_id)
+        VALUES (?, ?)
         RETURNING order_id;
         """,
-        (customer_id,)
+        (customer_id, employee_id)
     )
     order_id = cursor.fetchone()[0]
     
@@ -217,7 +217,7 @@ try:
             """,
             (order_id, product_id, 1)  # quantity set to 1
         )
-        conn.commit()
+    conn.commit()
     
 except Exception as e:
     conn.rollback()
@@ -233,8 +233,7 @@ cursor.execute(
     """,
     (order_id,)
 )
-cursor.execute("PRAGMA table_info(line_items)")
-print("Line_items columns:", cursor.fetchall())
+results = cursor.fetchall()
 
 print("Line items for order_id", order_id)
 for row in cursor.fetchall():
@@ -249,7 +248,9 @@ for row in cursor.fetchall():
 
 query3 = """      
 SELECT
-   e.employee_id,e.employee_name, COUNT(o.order_id) AS order_count
+   e.employee_id,
+   e.employee_name, 
+   COUNT(o.order_id) AS order_count
    FROM employees e
    JOIN orders o ON e.employee_id = o.employee_id   
     GROUP BY e.employee_id, e.employee_name
